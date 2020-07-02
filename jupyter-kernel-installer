@@ -1,0 +1,35 @@
+#!/bin/bash
+# 
+# Un/installs a virtual environment into Jupyter Lab
+
+function install() {
+    # Installs the kernel into Jupyter
+    KERNEL_NAME="${1}"
+    python \
+        -m ipykernel install \
+        --user \
+        --name "${KERNEL_NAME}" \
+        --display-name "Python (${KERNEL_NAME})"
+}
+
+function uninstall() {
+    # Uninstalls the kernel from Jupyter
+    KERNEL_NAME="${1}"
+    echo y | jupyter kernelspec uninstall "${KERNEL_NAME}"
+}
+
+function main () {
+    # Installs or uninstalls the kernel
+    KERNEL_NAME="${1}"
+    COMMAND="${2}"
+    if [ "${COMMAND}" = "install" ]; then
+        install "${KERNEL_NAME}"
+    elif [ "${COMMAND}" = "uninstall" ]; then
+        uninstall "${KERNEL_NAME}"
+    else
+        echo "Please specify 'install' or 'uninstall' as a positional argument."
+        return 1
+    fi
+}
+
+main "${@}"; exit "${?}"
