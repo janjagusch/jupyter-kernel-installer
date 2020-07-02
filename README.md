@@ -15,5 +15,7 @@ where `KERNEL_NAME` is the name of the kernel you want to un/install and `COMMAN
 Using `curl`:
 
 ```sh
-curl -sSL https://raw.githubusercontent.com/janjagusch/jupyter-kernel-installer/0.1.0/jupyter-kernel-installer | bash -s ${KERNEL_NAME} ${COMMAND}
+curl -sSL https://raw.githubusercontent.com/janjagusch/jupyter-kernel-installer/${VERSION}/jupyter-kernel-installer | bash -s ${KERNEL_NAME} ${COMMAND}
 ```
+
+where `VERSION` is the version of the script you want to use.
