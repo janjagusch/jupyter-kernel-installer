@@ -1,2 +1,3 @@
 # jupyter-kernel-installer
-Installs a virtual environment into Jupyter Lab
+
+Un/installs a virtual environment into Jupyter Lab.
